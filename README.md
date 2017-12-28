@@ -1,4 +1,7 @@
 ## ISTRUZIONI PER SETUP TERMINALE
+
+Update all, install zsh and set zsh as default shell:
+
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get install zsh
@@ -9,6 +12,8 @@ If chsh doesn't work, add this at the top of ~/.bashrc:
 	if test -t 1; then
 	exec zsh
 	fi
+
+Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager:
 
 	sudo apt-get install git-core
 	sudo apt-get install curl
@@ -24,9 +29,11 @@ Put this at the bottom of ~/.tmux.conf:
 	set -g @plugin 'tmux-plugins/tmux-resurrect'
 	run '~/.tmux/plugins/tpm/tpm'
 
+Reload TMUX environment:
+
 	tmux source ~/.tmux.conf
 
-[Ctrl + b] + I
+Install new plugins with [Ctrl + b] + I and then install base16-shell and fzf:
 
 	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -47,6 +54,8 @@ Add at the bottom of ~./zshrc:
 	        tmux attach-session -t "$ID"
 	    fi
 	fi
+
+Set your shell theme:
 
 	base16_darktooth
 
