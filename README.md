@@ -5,6 +5,7 @@
 	chsh -s $(which zsh)
 
 If chsh doesn't work, add this at the top of ~/.bashrc:
+
 	if test -t 1; then
 	exec zsh
 	fi
@@ -17,18 +18,22 @@ If chsh doesn't work, add this at the top of ~/.bashrc:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 Put this at the bottom of ~/.tmux.conf:
+
 	set -g @plugin 'tmux-plugins/tpm'
 	set -g @plugin 'tmux-plugins/tmux-sensible'
 	set -g @plugin 'tmux-plugins/tmux-resurrect'
 	run '~/.tmux/plugins/tpm/tpm'
 
 	tmux source ~/.tmux.conf
+
 [Ctrl + b] + I
+
 	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
 Add at the bottom of ~./zshrc:
+
 	BASE16_SHELL=$HOME/.config/base16-shell/
 	[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
