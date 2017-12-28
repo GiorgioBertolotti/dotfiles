@@ -1,0 +1,21 @@
+[user]
+    name = Giorgio Bertolotti
+    email = giorgio.bertolotti@aretes.net
+[color]
+        ui = true
+[format]
+        pretty = oneline
+[core]
+[alias]
+        ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --numstat
+        lf = log --follow --summary --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
+        lfdet = log --follow --summary -p --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
+        create-tar-branch = "!f() { git archive --output=$1 $2; }; f"
+        create-diff-father-son-tar = "!f() { git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $1^ $2 | xargs tar -rf $3; }; f"
+        showdiff-father-son = "!f() { git diff-tree -r --name-only $1^ $2; }; f"
+        pr = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+        pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+[core]
+        editor = nano
+        autocrlf = input
