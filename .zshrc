@@ -10,7 +10,7 @@
 ZSH_THEME="agnoster"
 
 # Set list of themes to load
-# Setting this variable when ZSH_THEME="spaceship"
+# Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
@@ -93,13 +93,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#eval `dircolors ~/../dircolors-solarized/dircolors.256dark`
+eval `dircolors ~/../dircolors-solarized/dircolors.256dark`
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ -z "$TMUX" ]]
 then
@@ -111,3 +108,5 @@ then
         tmux attach-session -t "$ID"
     fi
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
