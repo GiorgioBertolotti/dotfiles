@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME="spaceship"
@@ -111,3 +111,10 @@ then
         tmux attach-session -t "$ID"
     fi
 fi
+
+DEFAULT_USER=$USER
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DELIMITER=""
