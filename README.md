@@ -58,5 +58,5 @@ Add at the bottom of ~./zshrc:
 
 Set your shell theme:
 
-	base16_darktooth
+	base16_eighties
 
