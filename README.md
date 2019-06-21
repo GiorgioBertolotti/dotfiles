@@ -60,3 +60,17 @@ Set your shell theme:
 
 	base16_eighties
 
+Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
+
+	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+	git clone https://github.com/djui/alias-tips.git
+	wget https://github.com/djui/alias-tips/archive/master.zip
+	unzip master.zip && mv alias-tips-master alias-tips && rm master.zip
+	git submodule add https://github.com/djui/alias-tips
+	git submodule update --init
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+And add the plugin to *~/.zshrc* :
+
+	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
