@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 export ZSH=/home/giorgio/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
@@ -35,3 +36,4 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+cd ~
