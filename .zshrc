@@ -6,6 +6,7 @@ plugins=(
   alias-tips
   zsh-autosuggestions
   zsh-syntax-highlighting
+  z
 )
 
 source $ZSH/oh-my-zsh.sh

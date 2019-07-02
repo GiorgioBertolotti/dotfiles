@@ -70,7 +70,9 @@ Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 	git submodule update --init
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	cd
+	wget https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/z/z.sh
 
 And add the plugin to *~/.zshrc* :
 
-	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
+	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting z)
