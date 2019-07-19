@@ -19,7 +19,7 @@ Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager
 	sudo apt-get install curl
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	sudo apt-get install fonts-powerline
-	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 	sudo apt-get install tmux
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

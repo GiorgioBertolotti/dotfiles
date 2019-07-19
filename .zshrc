@@ -1,6 +1,6 @@
 export TERM="xterm-256color"
 export ZSH=/home/giorgio/.oh-my-zsh
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   alias-tips
