@@ -76,3 +76,14 @@ Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 And add the plugin to *~/.zshrc* :
 
 	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting z)
+
+[https://github.com/BurntSushi/ripgrep#installation](Install ripgrep).  
+On Mac:
+
+	brew install ripgrep
+
+On WSL:
+
+	curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+	sudo dpkg -i ripgrep_11.0.2_amd64.deb
+	sudo apt-get install libpcre2-8-0
