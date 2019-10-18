@@ -87,3 +87,11 @@ On WSL:
 	curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 	sudo dpkg -i ripgrep_11.0.2_amd64.deb
 	sudo apt-get install libpcre2-8-0
+
+Execute the following command to use *oh-my-zsh*:
+
+	ln -sf dot-files/omz/zshrc ~/.zshrc
+
+or the following to use *zplugin*:
+
+	ln -sf dot-files/zplugin/zshrc ~/.zshrc
