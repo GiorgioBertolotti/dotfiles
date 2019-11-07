@@ -1,11 +1,22 @@
 [user]
-    name = Giorgio Bertolotti
-    email = giorgiobertol@gmail.com
+	name = Giorgio Bertolotti
+	email = giorgiobertol@gmail.com
 [color]
         ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [format]
         pretty = oneline
-[core]
 [alias]
         ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --numstat
@@ -15,3 +26,4 @@
 [core]
         editor = vim
         autocrlf = input
+	pager = diff-so-fancy | less -FRSX

@@ -29,8 +29,17 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
+#POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 
 # PLUGINS
+
+# bat
+zplugin ice from"gh-r" as"program" mv"bat* -> bat" pick"bat/bat"
+zplugin light sharkdp/bat
+
+# zsh diff so fancy
+zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
 
 # alias-tips
 zplugin light djui/alias-tips
@@ -112,6 +121,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # ALIASES
 zplugin light mdumitru/git-aliases
+alias cat="bat"
 alias gpom="gp origin master"
 alias gpot="gp origin --tags"
 alias ls="exa -bh --color=auto"
