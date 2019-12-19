@@ -2,7 +2,7 @@
 	name = Giorgio Bertolotti
 	email = giorgiobertol@gmail.com
 [color]
-        ui = true
+	ui = true
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
@@ -16,14 +16,14 @@
 	new = green bold
 	whitespace = red reverse
 [format]
-        pretty = oneline
+	pretty = oneline
 [alias]
-        ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --numstat
-        lf = log --follow --summary --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
-        lfdet = log --follow --summary -p --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
-        tag-diff = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --oneline; };f"
+	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --decorate --numstat
+	lf = log --follow --summary --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
+	lfdet = log --follow --summary -p --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
+	tag-diff = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --oneline; };f"
 [core]
-        editor = vim
-        autocrlf = input
+	editor = vim
+	autocrlf = input
 	pager = diff-so-fancy | less -FRSX

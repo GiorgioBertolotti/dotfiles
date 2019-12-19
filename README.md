@@ -1,4 +1,6 @@
-## ISTRUZIONI PER SETUP TERMINALE
+# Setup UNIX terminal
+
+## ZSH rules
 
 Update all, install zsh and set zsh as default shell:
 
@@ -13,6 +15,8 @@ If chsh doesn't work, add this at the top of ~/.bashrc:
 	exec zsh
 	fi
 
+## Utilities and stuff
+
 Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager:
 
 	sudo apt-get install git-core
@@ -20,45 +24,15 @@ Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	sudo apt-get install fonts-powerline
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-	sudo apt-get install tmux
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-Put this at the bottom of ~/.tmux.conf:
-
-	set -g @plugin 'tmux-plugins/tpm'
-	set -g @plugin 'tmux-plugins/tmux-sensible'
-	set -g @plugin 'tmux-plugins/tmux-resurrect'
-	run '~/.tmux/plugins/tpm/tpm'
-
-Reload TMUX environment:
-
-	tmux source ~/.tmux.conf
-
-Install new plugins with [Ctrl + b] + I and then install base16-shell and fzf:
-
 	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
-Add at the bottom of ~./zshrc:
-
-	BASE16_SHELL=$HOME/.config/base16-shell/
-	[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-	if [[ -z "$TMUX" ]]
-	then
-	    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-	    if [[ -z "$ID" ]]
-	    then
-	        tmux new-session
-	    else
-	        tmux attach-session -t "$ID"
-	    fi
-	fi
-
 Set your shell theme:
 
 	base16_eighties
+
+## ZSH plugins
 
 Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 
@@ -77,6 +51,8 @@ And add the plugin to *~/.zshrc* :
 
 	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting z)
 
+## ripgrep
+
 [https://github.com/BurntSushi/ripgrep#installation](Install ripgrep).  
 On Mac:
 
@@ -87,6 +63,28 @@ On WSL:
 	curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 	sudo dpkg -i ripgrep_11.0.2_amd64.deb
 	sudo apt-get install libpcre2-8-0
+
+## TMUX
+
+**TMUX only if not on MacOS, iTerm 2 windows management is enought.**
+
+	sudo apt-get install tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Put this at the bottom of ~/.tmux.conf:
+
+	set -g @plugin 'tmux-plugins/tpm'
+	set -g @plugin 'tmux-plugins/tmux-sensible'
+	set -g @plugin 'tmux-plugins/tmux-resurrect'
+	run '~/.tmux/plugins/tpm/tpm'
+
+Reload TMUX environment:
+
+	tmux source ~/.tmux.conf
+
+Install new plugins with [Ctrl + b] + I.
+
+## OMZ/zplugin
 
 Execute the following command to use *oh-my-zsh*:
 
