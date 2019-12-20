@@ -151,6 +151,11 @@ Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 	brew install fzf
 	brew install ripgrep
+	brew install bat
+
+To use bat instead of cat, add the following line to the *.zshrc*:
+
+	alias cat="bat"
 
 ### ZSH plugins
 
