@@ -23,6 +23,7 @@
 	lf = log --follow --summary --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
 	lfdet = log --follow --summary -p --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
 	tag-diff = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --oneline; };f"
+	tag-diff-files = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --format=%H | git diff-tree --no-commit-id --name-only -r --stdin; };f"
 [core]
 	editor = vim
 	autocrlf = input
