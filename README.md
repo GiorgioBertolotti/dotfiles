@@ -98,7 +98,7 @@ Install new plugins with [Ctrl + b] + I.
 
 Execute the following command to use *oh-my-zsh*:
 
-	ln -sf dot-files/omz/zshrc ~/.zshrc
+	ln -sf dot-files/omz/zshrc_win ~/.zshrc
 
 or the following to use *zplugin*:
 
@@ -180,4 +180,4 @@ And add the plugin to *~/.zshrc* :
 
 Execute the following command to use the already configured *.zshrc*:
 
-	ln -sf dot-files/omz/zshrc ~/.zshrc
+	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
