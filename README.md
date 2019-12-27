@@ -17,8 +17,10 @@
 		- [iTerm2](#iterm2)
 		- [ZSH](#zsh-1)
 		- [Utilities and stuff](#utilities-and-stuff-1)
+		- [Spicetify](#spicetify)
 		- [ZSH plugins](#zsh-plugins-1)
 		- [.zshrc](#zshrc)
+		- [Homebrew casks](#homebrew-casks)
 
 ## WSL
 
@@ -143,19 +145,56 @@ Update all, install zsh and set zsh as default shell:
 
 ### Utilities and stuff
 
-Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager:
+Then install command-line packages:
 
 	brew install git-core
 	brew install curl
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+	brew install wget
 	brew install fzf
 	brew install ripgrep
 	brew install bat
+	brew install scrcpy
+	brew install hub
+	brew install speedtest-cli
+	brew install ffmpeg
+	brew install imagemagick
 
 To use bat instead of cat, add the following line to the *.zshrc*:
 
 	alias cat="bat"
+
+To use `speed` as an alias to execute the speedtest, add the following line to the *.zshrc* file:
+
+	alias speed="speedtest-cli"
+
+The following packages are language specific, but I'd suggest to install them anyway because of their generic purposes:
+
+	brew install python
+	brew install sqlite
+	brew install node
+	brew install go
+
+### Spicetify
+
+To install spicetify use:
+
+	brew install khanhas/tap/spicetify-cli
+
+then run `spicetify` with no options to generate config file.  
+Then run:
+
+	spicetify backup apply enable-devtool
+
+to setup the basic configuration.  
+To install the *google-spicetify* theme use the following commands:
+
+	cd "$(dirname "$(spicetify -c)")/Themes"
+	git clone https://github.com/khanhas/google-spicetify
+	spicetify config current_theme google-spicetify
+	spicetify config color_scheme Dark
+	spicetify apply
 
 ### ZSH plugins
 
@@ -181,3 +220,22 @@ And add the plugin to *~/.zshrc* :
 Execute the following command to use the already configured *.zshrc*:
 
 	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
+
+### Homebrew casks
+
+The following are commands to install apps through `cask`:
+
+	brew cask install alfred
+	brew cask install spectacle
+	brew cask install visual-studio-code
+	brew cask install macupdater
+	brew cask install vlc
+	brew cask install appcleaner
+	brew cask install font-fira-code
+	brew cask install figma
+	brew cask install dbeaver-community
+	brew cask install folx
+	brew cask install licecap
+	brew cask install notion
+	brew cask install android-platform-tools
+	brew cask install fastlane
