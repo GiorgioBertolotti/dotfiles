@@ -154,6 +154,7 @@ Then install command-line packages:
 	brew install wget
 	brew install fzf
 	brew install ripgrep
+	brew install diff-so-fancy
 	brew install bat
 	brew install scrcpy
 	brew install hub
