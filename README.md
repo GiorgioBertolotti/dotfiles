@@ -17,6 +17,7 @@
 		- [iTerm2](#iterm2)
 		- [ZSH](#zsh-1)
 		- [Utilities and stuff](#utilities-and-stuff-1)
+		- [BetterTouchTool](#bettertouchtool)
 		- [Spicetify](#spicetify)
 		- [ZSH plugins](#zsh-plugins-1)
 		- [.zshrc](#zshrc)
@@ -177,6 +178,14 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install node
 	brew install go
 
+### BetterTouchTool
+
+To install BTT use:
+
+	brew install bettertouchtool
+
+Once it's installed open it up and import [the preset](TouchBar.bttpreset).
+
 ### Spicetify
 
 To install spicetify use:
@@ -224,7 +233,7 @@ Execute the following command to use the already configured *.zshrc*:
 
 ### Homebrew casks
 
-The following are commands to install apps through `cask`:
+The following are commands to install my most commonly used apps through `cask`:
 
 	brew cask install alfred
 	brew cask install spectacle
@@ -233,10 +242,7 @@ The following are commands to install apps through `cask`:
 	brew cask install vlc
 	brew cask install appcleaner
 	brew cask install font-fira-code
-	brew cask install figma
-	brew cask install dbeaver-community
 	brew cask install folx
 	brew cask install licecap
-	brew cask install notion
 	brew cask install android-platform-tools
 	brew cask install fastlane
