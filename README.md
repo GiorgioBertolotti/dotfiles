@@ -198,12 +198,14 @@ Then run:
 	spicetify backup apply enable-devtool
 
 to setup the basic configuration.  
-To install the *google-spicetify* theme use the following commands:
+To install the Spicetify themes, copy the content of `./spicetify-themes/` in the folder `$(dirname "$(spicetify -c)")/Themes`.  
+Then add the extensions and apply the configuration with the following commands:
 
-	cd "$(dirname "$(spicetify -c)")/Themes"
-	git clone https://github.com/khanhas/google-spicetify
-	spicetify config current_theme google-spicetify
+	# Pick a theme between google-spicetify and Nord
+	spicetify config current_theme [google-spicetify/Nord]
 	spicetify config color_scheme Dark
+	spicetify config extensions shuffle+.js
+	spicetify config extensions trashbin.js
 	spicetify apply
 
 ### ZSH plugins
