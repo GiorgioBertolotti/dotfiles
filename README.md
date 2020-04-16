@@ -184,7 +184,7 @@ To install BTT use:
 
 	brew install bettertouchtool
 
-Once it's installed open it up and import [the preset](TouchBar.bttpreset).
+Once it's installed open it up and import [the preset](Zem.bttpreset).  
 
 ### Spicetify
 
@@ -236,7 +236,6 @@ Execute the following command to use the already configured *.zshrc*:
 The following are commands to install my most commonly used apps through `cask`:
 
 	brew cask install alfred
-	brew cask install spectacle
 	brew cask install visual-studio-code
 	brew cask install macupdater
 	brew cask install vlc
