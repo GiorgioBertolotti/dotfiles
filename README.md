@@ -243,7 +243,7 @@ The following are commands to install my most commonly used apps through `cask`:
 	brew cask install vlc
 	brew cask install appcleaner
 	brew cask install font-fira-code
-	brew cask install folx
 	brew cask install licecap
 	brew cask install android-platform-tools
 	brew cask install fastlane
+	brew cask install folx
