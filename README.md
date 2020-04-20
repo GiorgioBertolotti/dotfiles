@@ -219,6 +219,7 @@ Then add the extensions and apply the configuration with the following commands:
 	spicetify config color_scheme Dark
 	spicetify config extensions shuffle+.js
 	spicetify config extensions trashbin.js
+	spicetify config custom_apps reddit
 	spicetify apply
 
 ### ZSH plugins
