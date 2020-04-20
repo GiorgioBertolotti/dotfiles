@@ -6,7 +6,7 @@
 	- [Table of contents](#table-of-contents)
 	- [WSL](#wsl)
 		- [ZSH](#zsh)
-		- [Utilities and stuff](#utilities-and-stuff)
+		- [CLI Utilities](#cli-utilities)
 		- [ZSH plugins](#zsh-plugins)
 		- [TMUX](#tmux)
 		- [OMZ/zplugin](#omzzplugin)
@@ -16,7 +16,8 @@
 		- [Homebrew](#homebrew)
 		- [iTerm2](#iterm2)
 		- [ZSH](#zsh-1)
-		- [Utilities and stuff](#utilities-and-stuff-1)
+		- [CLI Utilities](#cli-utilities-1)
+		- [Alfred](#alfred)
 		- [BetterTouchTool](#bettertouchtool)
 		- [Spicetify](#spicetify)
 		- [ZSH plugins](#zsh-plugins-1)
@@ -40,7 +41,7 @@ If chsh doesn't work, add this at the top of ~/.bashrc:
 	exec zsh
 	fi
 
-### Utilities and stuff
+### CLI Utilities
 
 Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager:
 
@@ -178,6 +179,18 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install node
 	brew install go
 
+### Alfred
+
+To install Alfred use:
+
+	brew cask install alfred
+
+Once it's installed you can double click the files in the folder *alfred* to install extensions and themes.  
+Also, to use the *Alfred Bluetooth Controller* extension you should install [blueutil](http://www.frederikseiffert.de/blueutil/) and python3:
+
+	brew install blueutil
+	brew install python3
+
 ### BetterTouchTool
 
 To install BTT use:
@@ -237,7 +250,6 @@ Execute the following command to use the already configured *.zshrc*:
 
 The following are commands to install my most commonly used apps through `cask`:
 
-	brew cask install alfred
 	brew cask install visual-studio-code
 	brew cask install macupdater
 	brew cask install vlc
