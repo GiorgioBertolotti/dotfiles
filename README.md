@@ -10,7 +10,7 @@
 		- [ZSH plugins](#zsh-plugins)
 		- [TMUX](#tmux)
 		- [OMZ/zplugin](#omzzplugin)
-	- [MacOS](#macos)
+	- [MacOS/Linux](#macoslinux)
 		- [Use sudo with Touch ID](#use-sudo-with-touch-id)
 		- [Command line tools](#command-line-tools)
 		- [Homebrew](#homebrew)
@@ -108,13 +108,15 @@ or the following to use *zplugin*:
 
 	ln -sf dot-files/zplugin/zshrc ~/.zshrc
 
-## MacOS
+## MacOS/Linux
 
 ### Use sudo with Touch ID
+> MacOS only
 
 [Follow this guide](https://www.imore.com/how-use-sudo-your-mac-touch-id).
 
 ### Command line tools
+> MacOS only
 
 To install command line tools on MacOS use the following command:
 
@@ -131,6 +133,7 @@ Once finished install Cask:
 	brew tap caskroom/cask
 
 ### iTerm2
+> MacOS only
 
 Use cask to install iTerm2 as default terminal:
 
@@ -142,29 +145,29 @@ Update all, install zsh and set zsh as default shell:
 
 	brew update
 	brew upgrade
-	brew install zsh
+	brew install zsh # UNIX shell (https://www.zsh.org/)
 	sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 
 ### CLI Utilities
 
 Then install command-line packages:
 
-	brew install git-core
-	brew install curl
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-	brew install wget
-	brew install fzf
-	brew install ripgrep
-	brew install bat
-	brew install scrcpy
-	brew install hub
-	brew install speedtest-cli
-	brew install ffmpeg
-	brew install imagemagick
-	brew install exa
-	brew install git-delta
-	brew install zoxide
+	brew install git # Distributed revision control system (https://git-scm.com/)
+	brew install curl # Get a file from an HTTP, HTTPS or FTP server (https://curl.haxx.se/)
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" # Framework for managing your Zsh configuration (https://github.com/ohmyzsh/ohmyzsh)
+	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k # Zsh theme (https://github.com/romkatv/powerlevel10k)
+	brew install wget # Internet file retriever (https://www.gnu.org/software/wget/)
+	brew install fzf # Command-line fuzzy finder written in Go (https://github.com/junegunn/fzf)
+	brew install ripgrep # Search tool like grep and The Silver Searcher (https://github.com/BurntSushi/ripgrep)
+	brew install bat # Clone of cat with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
+	brew install scrcpy # Display and control your Android device (https://github.com/Genymobile/scrcpy)
+	brew install hub # Add GitHub support to git on the command-line (https://github.com/github/hub)
+	brew install speedtest-cli # Command-line interface for https://speedtest.net bandwidth tests (https://github.com/sivel/speedtest-cli)
+	brew install ffmpeg # Play, record, convert, and stream audio and video (https://ffmpeg.org/)
+	brew install imagemagick # Tools and libraries to manipulate images in many formats (https://imagemagick.org/index.php)
+	brew install exa # Modern replacement for 'ls' (https://github.com/ogham/exa)
+	brew install git-delta # Syntax-highlighting pager for git and diff output (https://github.com/dandavison/delta)
+	brew install zoxide # Shell extension to navigate your filesystem faster (https://github.com/ajeetdsouza/zoxide)
 
 To use bat instead of cat, add the following line to the *.zshrc*:
 
@@ -182,6 +185,7 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install go
 
 ### Alfred
+> MacOS only
 
 To install Alfred use:
 
@@ -190,14 +194,15 @@ To install Alfred use:
 Once it's installed you can double click the files in the folder *alfred* to install extensions and themes.  
 Also, to use the *Alfred Bluetooth Controller* extension you should install [blueutil](http://www.frederikseiffert.de/blueutil/) and python3:
 
-	brew install blueutil
+	brew install blueutil # Get/set bluetooth power and discoverable state (https://github.com/toy/blueutil)
 	brew install python3
 
 ### BetterTouchTool
+> MacOS only
 
 To install BTT use:
 
-	brew install bettertouchtool
+	brew cask install bettertouchtool 
 
 Once it's installed open it up and import [the preset](Zem.bttpreset).  
 
@@ -205,7 +210,7 @@ Once it's installed open it up and import [the preset](Zem.bttpreset).
 
 To install spicetify use:
 
-	brew install khanhas/tap/spicetify-cli
+	brew install khanhas/tap/spicetify-cli # Commandline tool to customize Spotify client (https://github.com/khanhas/spicetify-cli)
 
 then run `spicetify` with no options to generate config file.  
 Then run:
@@ -229,15 +234,11 @@ Then add the extensions and apply the configuration with the following commands:
 Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 
 	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
-	git clone https://github.com/djui/alias-tips.git
-	wget https://github.com/djui/alias-tips/archive/master.zip
-	unzip master.zip && mv alias-tips-master alias-tips && rm master.zip
-	git submodule add -f https://github.com/djui/alias-tips
-	git submodule update --init
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/djui/alias-tips.git # An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
+	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions # Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
 
-And add the plugin to *~/.zshrc* :
+And enable the plugins adding the following line to *~/.zshrc* :
 
 	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -248,6 +249,7 @@ Execute the following command to use the already configured *.zshrc*:
 	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
 
 ### Homebrew casks
+> MacOS only
 
 The following are commands to install my most commonly used apps through `cask`:
 
