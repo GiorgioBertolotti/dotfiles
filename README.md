@@ -165,7 +165,6 @@ Then install command-line packages:
 	brew install exa
 	brew install git-delta
 	brew install zoxide
-	npm install -g tldr
 
 To use bat instead of cat, add the following line to the *.zshrc*:
 
