@@ -156,13 +156,16 @@ Then install command-line packages:
 	brew install wget
 	brew install fzf
 	brew install ripgrep
-	brew install diff-so-fancy
 	brew install bat
 	brew install scrcpy
 	brew install hub
 	brew install speedtest-cli
 	brew install ffmpeg
 	brew install imagemagick
+	brew install exa
+	brew install git-delta
+	brew install zoxide
+	npm install -g tldr
 
 To use bat instead of cat, add the following line to the *.zshrc*:
 
@@ -234,12 +237,10 @@ Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 	git submodule update --init
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	cd
-	wget https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/z/z.sh
 
 And add the plugin to *~/.zshrc* :
 
-	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting z)
+	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
 
 ### .zshrc
 
