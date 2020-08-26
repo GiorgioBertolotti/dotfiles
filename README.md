@@ -128,6 +128,10 @@ To install Homebrew on MacOS execute the following command:
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+	# Update the formulas and upgrade your installed packages
+	brew update
+	brew upgrade
+
 Once finished install Cask:
 
 	brew tap caskroom/cask
@@ -141,41 +145,88 @@ Use cask to install iTerm2 as default terminal:
 
 ### ZSH
 
-Update all, install zsh and set zsh as default shell:
+[Zsh](https://www.zsh.org/) is a UNIX shell.  
+Install it and set it as default shell:
 
-	brew update
-	brew upgrade
-	brew install zsh # UNIX shell (https://www.zsh.org/)
+	brew install zsh
 	sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 
 ### CLI Utilities
 
 Then install command-line packages:
 
-	brew install git # Distributed revision control system (https://git-scm.com/)
-	brew install curl # Get a file from an HTTP, HTTPS or FTP server (https://curl.haxx.se/)
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" # Framework for managing your Zsh configuration (https://github.com/ohmyzsh/ohmyzsh)
-	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k # Zsh theme (https://github.com/romkatv/powerlevel10k)
-	brew install wget # Internet file retriever (https://www.gnu.org/software/wget/)
-	brew install fzf # Command-line fuzzy finder written in Go (https://github.com/junegunn/fzf)
-	brew install ripgrep # Search tool like grep and The Silver Searcher (https://github.com/BurntSushi/ripgrep)
-	brew install bat # Clone of cat with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
-	brew install scrcpy # Display and control your Android device (https://github.com/Genymobile/scrcpy)
-	brew install hub # Add GitHub support to git on the command-line (https://github.com/github/hub)
-	brew install speedtest-cli # Command-line interface for https://speedtest.net bandwidth tests (https://github.com/sivel/speedtest-cli)
-	brew install ffmpeg # Play, record, convert, and stream audio and video (https://ffmpeg.org/)
-	brew install imagemagick # Tools and libraries to manipulate images in many formats (https://imagemagick.org/index.php)
-	brew install exa # Modern replacement for 'ls' (https://github.com/ogham/exa)
-	brew install git-delta # Syntax-highlighting pager for git and diff output (https://github.com/dandavison/delta)
-	brew install zoxide # Shell extension to navigate your filesystem faster (https://github.com/ajeetdsouza/zoxide)
+	# Distributed revision control system (https://git-scm.com/)
+	brew install git
 
-To use bat instead of cat, add the following line to the *.zshrc*:
+	# Get a file from an HTTP, HTTPS or FTP server (https://curl.haxx.se/)
+	brew install curl
+
+	# Framework for managing your Zsh configuration (https://github.com/ohmyzsh/ohmyzsh)
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+	# Zsh theme (https://github.com/romkatv/powerlevel10k)
+	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+	# Internet file retriever (https://www.gnu.org/software/wget/)
+	brew install wget
+
+	# Command-line fuzzy finder written in Go (https://github.com/junegunn/fzf)
+	brew install fzf
+
+	# Search tool like grep and The Silver Searcher (https://github.com/BurntSushi/ripgrep)
+	brew install ripgrep
+
+	# Clone of cat with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
+	brew install bat
+
+	# Display and control your Android device (https://github.com/Genymobile/scrcpy)
+	brew install scrcpy
+
+	# Add GitHub support to git on the command-line (https://github.com/github/hub)
+	brew install hub
+
+	# Command-line interface for https://speedtest.net bandwidth tests (https://github.com/sivel/speedtest-cli)
+	brew install speedtest-cli
+	
+	# Play, record, convert, and stream audio and video (https://ffmpeg.org/)
+	brew install ffmpeg
+
+	# Tools and libraries to manipulate images in many formats (https://imagemagick.org/index.php)
+	brew install imagemagick
+
+	# Modern replacement for 'ls' (https://github.com/ogham/exa)
+	brew install exa
+
+	# Syntax-highlighting pager for git and diff output (https://github.com/dandavison/delta)
+	brew install git-delta
+
+	# Shell extension to navigate your filesystem faster (https://github.com/ajeetdsouza/zoxide)
+	brew install zoxide
+
+To use `bat` instead of `cat`, add the following line to *.zshrc*:
 
 	alias cat="bat"
 
-To use `speed` as an alias to execute the speedtest, add the following line to the *.zshrc* file:
+To use `speed` as an alias to execute the `speedtest-cli`, add the following line to *.zshrc*:
 
 	alias speed="speedtest-cli"
+
+To enable `zoxide` add the following line to *.zshrc*:
+
+	eval "$(zoxide init zsh)"
+
+To replace the standard `ls` command with `exa`, add the following lines to *.zshrc*:
+
+	if [ "$(command -v exa)" ]; then
+			unalias -m 'll'
+			unalias -m 'l'
+			unalias -m 'la'
+			unalias -m 'ls'
+			alias ll='exa -l --color always --icons -a -s type'
+			alias l='exa -l --color always --icons -a -s type'
+			alias la='exa -l --color always --icons -a -s type'
+			alias ls='exa -G  --color auto --icons -a -s type'
+	fi
 
 The following packages are language specific, but I'd suggest to install them anyway because of their generic purposes:
 
@@ -194,7 +245,9 @@ To install Alfred use:
 Once it's installed you can double click the files in the folder *alfred* to install extensions and themes.  
 Also, to use the *Alfred Bluetooth Controller* extension you should install [blueutil](http://www.frederikseiffert.de/blueutil/) and python3:
 
-	brew install blueutil # Get/set bluetooth power and discoverable state (https://github.com/toy/blueutil)
+	# Get/set bluetooth power and discoverable state (https://github.com/toy/blueutil)
+	brew install blueutil
+
 	brew install python3
 
 ### BetterTouchTool
@@ -208,9 +261,10 @@ Once it's installed open it up and import [the preset](Zem.bttpreset).
 
 ### Spicetify
 
+[Spicetify](https://github.com/khanhas/spicetify-cli) is a commandline tool to customize Spotify client.  
 To install spicetify use:
 
-	brew install khanhas/tap/spicetify-cli # Commandline tool to customize Spotify client (https://github.com/khanhas/spicetify-cli)
+	brew install khanhas/tap/spicetify-cli
 
 then run `spicetify` with no options to generate config file.  
 Then run:
@@ -234,9 +288,15 @@ Then add the extensions and apply the configuration with the following commands:
 Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 
 	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
-	git clone https://github.com/djui/alias-tips.git # An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
-	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions # Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
+
+	# An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
+	git clone https://github.com/djui/alias-tips.git
+
+	# Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
+	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
+
+	# Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
 
 And enable the plugins adding the following line to *~/.zshrc* :
 
