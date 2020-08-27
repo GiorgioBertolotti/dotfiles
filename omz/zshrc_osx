@@ -1,5 +1,5 @@
 export TERM=xterm-256color
-export ZSH=/Users/giorgio/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
@@ -16,6 +16,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 alias gpom="gp origin master"
 alias glom="gl origin master"
+alias glod="gl origin devel"
 alias gpot="gp origin --tags"
 alias cat="bat"
 alias speed="speedtest-cli"
@@ -43,3 +44,23 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+clean_dic_ios() {
+    echo ">>>> clean_dic_ios <<<<"
+    z dipe
+    yarn
+    cd ios
+    pod install
+    cd ..
+    yarn ios
+}
+
+clean_dic_android() {
+    echo ">>>> clean_dic_android <<<<"
+    z dipe
+    yarn
+    cd android
+    ./gradlew clean
+    cd ..
+    yarn android
+}
