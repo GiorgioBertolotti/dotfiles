@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 9,
+        "colorSelected" : "#FEFFFFFF",
+        "font" : "System",
+        "color" : "#939497FF"
+      },
+      "shortcut" : {
+        "size" : 8,
+        "colorSelected" : "#FEFFFFFF",
+        "font" : "System",
+        "color" : "#737476FF"
+      },
+      "backgroundSelected" : "#494A4CFF",
+      "text" : {
+        "size" : 17,
+        "colorSelected" : "#FEFFFFFF",
+        "font" : "System",
+        "color" : "#909193FF"
+      },
+      "iconPaddingHorizontal" : 8,
+      "paddingVertical" : 6,
+      "iconSize" : 33
+    },
+    "search" : {
+      "paddingVertical" : 0,
+      "background" : "#33343700",
+      "spacing" : 4,
+      "text" : {
+        "size" : 24,
+        "colorSelected" : "#000000FF",
+        "font" : "System",
+        "color" : "#ECF1F2FF"
+      },
+      "backgroundSelected" : "#D0EAC7FF"
+    },
+    "window" : {
+      "color" : "#333437FF",
+      "paddingHorizontal" : 0,
+      "width" : 440,
+      "borderPadding" : 6,
+      "borderColor" : "#494A4CFF",
+      "blur" : 40,
+      "roundness" : 5,
+      "paddingVertical" : 2
+    },
+    "credit" : "mayuzumi",
+    "separator" : {
+      "color" : "#636C7A00",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#909193FF",
+      "thickness" : 2
+    },
+    "name" : "Night"
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "spicetify-themes/google-spicetify"]
+	path = spicetify-themes/google-spicetify
+	url = https://github.com/khanhas/google-spicetify

@@ -6,17 +6,19 @@
 	- [Table of contents](#table-of-contents)
 	- [WSL](#wsl)
 		- [ZSH](#zsh)
-		- [Utilities and stuff](#utilities-and-stuff)
+		- [CLI Utilities](#cli-utilities)
 		- [ZSH plugins](#zsh-plugins)
 		- [TMUX](#tmux)
 		- [OMZ/zplugin](#omzzplugin)
-	- [MacOS](#macos)
+	- [MacOS/Linux](#macoslinux)
 		- [Use sudo with Touch ID](#use-sudo-with-touch-id)
 		- [Command line tools](#command-line-tools)
 		- [Homebrew](#homebrew)
 		- [iTerm2](#iterm2)
 		- [ZSH](#zsh-1)
-		- [Utilities and stuff](#utilities-and-stuff-1)
+		- [CLI Utilities](#cli-utilities-1)
+		- [Alfred](#alfred)
+		- [BetterTouchTool](#bettertouchtool)
 		- [Spicetify](#spicetify)
 		- [ZSH plugins](#zsh-plugins-1)
 		- [.zshrc](#zshrc)
@@ -39,7 +41,7 @@ If chsh doesn't work, add this at the top of ~/.bashrc:
 	exec zsh
 	fi
 
-### Utilities and stuff
+### CLI Utilities
 
 Then install git, curl, oh-my-zsh, fonts-powerline, tmux and tmux plugin manager:
 
@@ -106,13 +108,15 @@ or the following to use *zplugin*:
 
 	ln -sf dot-files/zplugin/zshrc ~/.zshrc
 
-## MacOS
+## MacOS/Linux
 
 ### Use sudo with Touch ID
+> MacOS only
 
 [Follow this guide](https://www.imore.com/how-use-sudo-your-mac-touch-id).
 
 ### Command line tools
+> MacOS only
 
 To install command line tools on MacOS use the following command:
 
@@ -124,11 +128,16 @@ To install Homebrew on MacOS execute the following command:
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+	# Update the formulas and upgrade your installed packages
+	brew update
+	brew upgrade
+
 Once finished install Cask:
 
 	brew tap caskroom/cask
 
 ### iTerm2
+> MacOS only
 
 Use cask to install iTerm2 as default terminal:
 
@@ -136,39 +145,88 @@ Use cask to install iTerm2 as default terminal:
 
 ### ZSH
 
-Update all, install zsh and set zsh as default shell:
+[Zsh](https://www.zsh.org/) is a UNIX shell.  
+Install it and set it as default shell:
 
-	brew update
-	brew upgrade
 	brew install zsh
 	sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 
-### Utilities and stuff
+### CLI Utilities
 
 Then install command-line packages:
 
-	brew install git-core
+	# Distributed revision control system (https://git-scm.com/)
+	brew install git
+
+	# Get a file from an HTTP, HTTPS or FTP server (https://curl.haxx.se/)
 	brew install curl
+
+	# Framework for managing your Zsh configuration (https://github.com/ohmyzsh/ohmyzsh)
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+	# Zsh theme (https://github.com/romkatv/powerlevel10k)
 	git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+	# Internet file retriever (https://www.gnu.org/software/wget/)
 	brew install wget
+
+	# Command-line fuzzy finder written in Go (https://github.com/junegunn/fzf)
 	brew install fzf
+
+	# Search tool like grep and The Silver Searcher (https://github.com/BurntSushi/ripgrep)
 	brew install ripgrep
-	brew install diff-so-fancy
+
+	# Clone of cat with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
 	brew install bat
+
+	# Display and control your Android device (https://github.com/Genymobile/scrcpy)
 	brew install scrcpy
+
+	# Add GitHub support to git on the command-line (https://github.com/github/hub)
 	brew install hub
+
+	# Command-line interface for https://speedtest.net bandwidth tests (https://github.com/sivel/speedtest-cli)
 	brew install speedtest-cli
+	
+	# Play, record, convert, and stream audio and video (https://ffmpeg.org/)
 	brew install ffmpeg
+
+	# Tools and libraries to manipulate images in many formats (https://imagemagick.org/index.php)
 	brew install imagemagick
 
-To use bat instead of cat, add the following line to the *.zshrc*:
+	# Modern replacement for 'ls' (https://github.com/ogham/exa)
+	brew install exa
+
+	# Syntax-highlighting pager for git and diff output (https://github.com/dandavison/delta)
+	brew install git-delta
+
+	# Shell extension to navigate your filesystem faster (https://github.com/ajeetdsouza/zoxide)
+	brew install zoxide
+
+To use `bat` instead of `cat`, add the following line to *.zshrc*:
 
 	alias cat="bat"
 
-To use `speed` as an alias to execute the speedtest, add the following line to the *.zshrc* file:
+To use `speed` as an alias to execute the `speedtest-cli`, add the following line to *.zshrc*:
 
 	alias speed="speedtest-cli"
+
+To enable `zoxide` add the following line to *.zshrc*:
+
+	eval "$(zoxide init zsh)"
+
+To replace the standard `ls` command with `exa`, add the following lines to *.zshrc*:
+
+	if [ "$(command -v exa)" ]; then
+			unalias -m 'll'
+			unalias -m 'l'
+			unalias -m 'la'
+			unalias -m 'ls'
+			alias ll='exa -l --color always --icons -a -s type'
+			alias l='exa -l --color always --icons -a -s type'
+			alias la='exa -l --color always --icons -a -s type'
+			alias ls='exa -G  --color auto --icons -a -s type'
+	fi
 
 The following packages are language specific, but I'd suggest to install them anyway because of their generic purposes:
 
@@ -177,8 +235,33 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install node
 	brew install go
 
+### Alfred
+> MacOS only
+
+To install Alfred use:
+
+	brew cask install alfred
+
+Once it's installed you can double click the files in the folder *alfred* to install extensions and themes.  
+Also, to use the *Alfred Bluetooth Controller* extension you should install [blueutil](http://www.frederikseiffert.de/blueutil/) and python3:
+
+	# Get/set bluetooth power and discoverable state (https://github.com/toy/blueutil)
+	brew install blueutil
+
+	brew install python3
+
+### BetterTouchTool
+> MacOS only
+
+To install BTT use:
+
+	brew cask install bettertouchtool 
+
+Once it's installed open it up and import [the preset](Zem.bttpreset).  
+
 ### Spicetify
 
+[Spicetify](https://github.com/khanhas/spicetify-cli) is a commandline tool to customize Spotify client.  
 To install spicetify use:
 
 	brew install khanhas/tap/spicetify-cli
@@ -189,12 +272,15 @@ Then run:
 	spicetify backup apply enable-devtool
 
 to setup the basic configuration.  
-To install the *google-spicetify* theme use the following commands:
+To install the Spicetify themes, copy the content of `./spicetify-themes/` in the folder `$(dirname "$(spicetify -c)")/Themes`.  
+Then add the extensions and apply the configuration with the following commands:
 
-	cd "$(dirname "$(spicetify -c)")/Themes"
-	git clone https://github.com/khanhas/google-spicetify
-	spicetify config current_theme google-spicetify
+	# Pick a theme between google-spicetify and Nord
+	spicetify config current_theme [google-spicetify/Nord]
 	spicetify config color_scheme Dark
+	spicetify config extensions shuffle+.js
+	spicetify config extensions trashbin.js
+	spicetify config custom_apps reddit
 	spicetify apply
 
 ### ZSH plugins
@@ -202,19 +288,19 @@ To install the *google-spicetify* theme use the following commands:
 Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 
 	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+
+	# An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
 	git clone https://github.com/djui/alias-tips.git
-	wget https://github.com/djui/alias-tips/archive/master.zip
-	unzip master.zip && mv alias-tips-master alias-tips && rm master.zip
-	git submodule add -f https://github.com/djui/alias-tips
-	git submodule update --init
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	cd
-	wget https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/z/z.sh
 
-And add the plugin to *~/.zshrc* :
+	# Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
+	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
 
-	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting z)
+	# Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
+
+And enable the plugins adding the following line to *~/.zshrc* :
+
+	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
 
 ### .zshrc
 
@@ -223,20 +309,16 @@ Execute the following command to use the already configured *.zshrc*:
 	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
 
 ### Homebrew casks
+> MacOS only
 
-The following are commands to install apps through `cask`:
+The following are commands to install my most commonly used apps through `cask`:
 
-	brew cask install alfred
-	brew cask install spectacle
 	brew cask install visual-studio-code
 	brew cask install macupdater
 	brew cask install vlc
 	brew cask install appcleaner
 	brew cask install font-fira-code
-	brew cask install figma
-	brew cask install dbeaver-community
-	brew cask install folx
 	brew cask install licecap
-	brew cask install notion
 	brew cask install android-platform-tools
 	brew cask install fastlane
+	brew cask install folx

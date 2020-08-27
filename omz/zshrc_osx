@@ -1,18 +1,39 @@
 export TERM=xterm-256color
+
+# Path to oh-my-zsh configuration
 export ZSH=$HOME/.oh-my-zsh
+
+# Zsh theme and plugins
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   alias-tips
   zsh-autosuggestions
   zsh-syntax-highlighting
-  z
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# CLI Utilities Setup
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# base16-shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+cd ~
+
+# ALIASES
 
 alias gpom="gp origin master"
 alias glom="gl origin master"
@@ -21,10 +42,19 @@ alias gpot="gp origin --tags"
 alias cat="bat"
 alias speed="speedtest-cli"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Enable exa instead of ls, if it is installed
+if [ "$(command -v exa)" ]; then
+    unalias -m 'll'
+    unalias -m 'l'
+    unalias -m 'la'
+    unalias -m 'ls'
+    alias ll='exa -l --color always --icons -a -s type'
+    alias l='exa -l --color always --icons -a -s type'
+    alias la='exa -l --color always --icons -a -s type'
+    alias ls='exa -G  --color auto --icons -a -s type'
+fi
 
+# Theme config
 DEFAULT_USER=$USER
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
@@ -32,10 +62,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-cd ~
-
+# Checks iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # React-Native env variables
@@ -45,6 +72,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# Custom commands
 clean_dic_ios() {
     echo ">>>> clean_dic_ios <<<<"
     z dipe
