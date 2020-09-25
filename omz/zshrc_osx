@@ -73,6 +73,11 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Custom commands
+propic() {
+    echo ">>>> downloading propic <<<<"
+    curl -o propic.jpeg "https://gravatar.com/avatar/3d2746ae6d5b422213088b12ebab1131?s=1000"
+}
+
 clean_dic_ios() {
     echo ">>>> clean_dic_ios <<<<"
     z dipe
