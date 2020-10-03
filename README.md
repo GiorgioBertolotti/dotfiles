@@ -300,7 +300,7 @@ To install the Spicetify themes, copy the content of `./spicetify-themes/` in th
 Then add the extensions and apply the configuration with the following commands:
 
 	# Pick a theme between google-spicetify and Nord
-	spicetify config current_theme [google-spicetify/Nord]
+	spicetify config current_theme [google-spicetify/Nord/Dracula]
 	spicetify config color_scheme Dark
 	spicetify config extensions shuffle+.js
 	spicetify config extensions trashbin.js
