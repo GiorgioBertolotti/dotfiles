@@ -20,8 +20,7 @@
 		- [Alfred](#alfred)
 		- [BetterTouchTool](#bettertouchtool)
 		- [Spicetify](#spicetify)
-		- [ZSH plugins](#zsh-plugins-1)
-		- [.zshrc](#zshrc)
+		- [Theming](#theming)
 		- [Homebrew casks](#homebrew-casks)
 
 ## WSL
@@ -150,6 +149,31 @@ Install it and set it as default shell:
 
 	brew install zsh
 	sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
+
+#### ZSH plugins
+
+Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
+
+	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+
+	# An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
+	git clone https://github.com/djui/alias-tips.git
+
+	# Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
+	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
+
+	# Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
+
+And enable the plugins adding the following line to *~/.zshrc* :
+
+	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
+
+#### .zshrc
+
+Execute the following command to use the already configured *.zshrc*:
+
+	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
 
 ### CLI Utilities
 
@@ -283,30 +307,47 @@ Then add the extensions and apply the configuration with the following commands:
 	spicetify config custom_apps reddit
 	spicetify apply
 
-### ZSH plugins
+### Theming
+> To theme all the apps as I do, check out [Dracula](https://draculatheme.com/telegram).
 
-Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
+Create a folder in the root of your filesystem and name it Dracula, it will contain all the themes repositories 
+for your apps, so that you can easily keep them up-to-date.
 
-	cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+	mkdir ~/Dracula
+	cd ~/Dracula
+	git clone https://github.com/dracula/alfred
+	git clone https://github.com/dracula/iterm.git
+	git clone https://github.com/dracula/telegram.git
+	git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
+	cd ~/.vscode/extensions/theme-dracula
+	npm install
+	npm run build
 
-	# An oh-my-zsh plugin to help remembering those aliases you defined once (https://github.com/djui/alias-tips)
-	git clone https://github.com/djui/alias-tips.git
+Check out the following sections to see how to install app specific theme.
 
-	# Fish-like autosuggestions for zsh (https://github.com/zsh-users/zsh-autosuggestions)
-	git clone https://github.com/zsh-users/zsh-autosuggestions zsh-autosuggestions
+#### Alfred
 
-	# Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
+Just double-click `Dracula.alfredappearance`.
 
-And enable the plugins adding the following line to *~/.zshrc* :
+#### iTerm
 
-	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
+1. *iTerm2 > Preferences > Profiles > Colors Tab*
+2. Open the *Color Presets...* drop-down in the bottom right corner
+3. Select *Import...* from the list
+4. Select the `Dracula.itermcolors` file
+5. Select the *Dracula* from Color *Presets...*
 
-### .zshrc
+**NB:** If `base16-shell` is active you must comment its activation out from *.zshrc*.
 
-Execute the following command to use the already configured *.zshrc*:
+#### Telegram Desktop
 
-	ln -sf dot-files/omz/zshrc_osx ~/.zshrc
+1. In Telegram Desktop, go to setting and under the *Chat background* section click on *Choose from file*.
+2. Select the `colors.tdesktop-theme` file you just downloaded.
+3. Click *Keep Changes* to apply the theme.
+
+#### Visual Studio Code
+
+Run Visual Studio Code. The Dracula Syntax Theme will be available from *File -> Preferences -> Color Theme* dropdown menu.
 
 ### Homebrew casks
 > MacOS only
@@ -322,3 +363,5 @@ The following are commands to install my most commonly used apps through `cask`:
 	brew cask install android-platform-tools
 	brew cask install fastlane
 	brew cask install folx
+	brew cask install telegram-desktop
+	brew cask install discord
