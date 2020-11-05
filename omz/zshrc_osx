@@ -21,8 +21,8 @@ eval "$(zoxide init zsh)"
 
 # base16-shell
 # Comment this section out if you want to activate the Dracula theme from iTerm2
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -42,6 +42,7 @@ alias glod="gl origin devel"
 alias gpot="gp origin --tags"
 alias cat="bat"
 alias speed="speedtest-cli"
+alias notify="tput bel"
 
 # Enable exa instead of ls, if it is installed
 if [ "$(command -v exa)" ]; then
