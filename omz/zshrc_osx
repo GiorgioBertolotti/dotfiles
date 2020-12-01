@@ -36,6 +36,7 @@ cd ~
 
 # ALIASES
 
+bindkey "^ " forward-word
 alias gpom="gp origin master"
 alias glom="gl origin master"
 alias glod="gl origin devel"
