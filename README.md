@@ -1,5 +1,10 @@
 # Setup UNIX terminal
 
+Hey there! 👋
+You can check out my work environment here, if you like it please consider supporting my work
+
+<a href='https://www.buymeacoffee.com/GiorgioZem' target="_blank"><img alt='Buy me a coffee' src='https://cdn.buymeacoffee.com/buttons/lato-yellow.png' height="38" width="160" /></a>
+
 ## Table of contents
 
 - [Setup UNIX terminal](#setup-unix-terminal)
