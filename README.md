@@ -12,6 +12,7 @@ You can check out my work environment here, if you like it please consider suppo
 	- [Use sudo with Touch ID](#use-sudo-with-touch-id)
 	- [Command line tools](#command-line-tools)
 	- [Homebrew](#homebrew)
+	- [Quick start](#quick-start)
 	- [iTerm2](#iterm2)
 	- [CLI Utilities](#cli-utilities)
 	- [Alfred](#alfred)
@@ -68,7 +69,9 @@ Execute the following command to use my already configured *.zshrc*:
 
 ### Use sudo with Touch ID
 
-[Follow this guide](https://www.imore.com/how-use-sudo-your-mac-touch-id).
+[[guide](https://www.imore.com/how-use-sudo-your-mac-touch-id)] Open the sudo auth file */etc/pam.d/sudo* and add the following line:
+
+	auth sufficiend pam_tid.so
 
 ### Command line tools
 
@@ -89,6 +92,17 @@ To install Homebrew on MacOS execute the following command:
 Once finished install Cask:
 
 	brew tap caskroom/cask
+
+### Quick start
+
+With the help of the *Brewfile*, we can dump the list of brew installed taps, brews and casks.  
+To generate a new Brewfile, run:
+
+	brew bundle dump
+
+To restore a configuration, jump in the folder where you have the Brewfile and run:
+
+	brew bundle
 
 ### iTerm2
 
