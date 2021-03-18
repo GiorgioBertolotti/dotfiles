@@ -68,6 +68,9 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 # Checks iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Node global commands path
+export PATH=/usr/local/Cellar/node/15.9.0/bin:$PATH
+
 # React-Native env variables
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -83,6 +86,7 @@ propic() {
 
 clean_dic_ios() {
     echo ">>>> clean_dic_ios <<<<"
+    echo ">>>> yarn install, pod install and run on iOS <<<<"
     z dipe
     yarn
     cd ios
@@ -93,10 +97,20 @@ clean_dic_ios() {
 
 clean_dic_android() {
     echo ">>>> clean_dic_android <<<<"
+    echo ">>>> yarn install, clear Gradle cache and run on Android <<<<"
     z dipe
     yarn
     cd android
     ./gradlew clean
     cd ..
     yarn android
+}
+
+flutter_web_deploy() {
+    echo ">>>> flutter_web_deploy <<<<"
+    echo ">>>> build and deploy Flutter Web on Firebase hosting <<<<"
+    flutter build web
+    cd build/web
+    firebase deploy
+    cd ../..
 }
