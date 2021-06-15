@@ -10,6 +10,7 @@ plugins=(
   alias-tips
   zsh-autosuggestions
   zsh-syntax-highlighting
+  git-flow
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -69,7 +70,7 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Node global commands path
-export PATH=/usr/local/Cellar/node/15.9.0/bin:$PATH
+export PATH=/usr/local/Cellar/node/15.12.0/bin:$PATH
 
 # React-Native env variables
 export ANDROID_HOME=$HOME/Library/Android/sdk
