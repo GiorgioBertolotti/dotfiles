@@ -117,8 +117,8 @@ Then install command-line packages:
     # Distributed revision control system (https://git-scm.com/)
 	brew install git
 
-    # A set of efficient branching git extensions (https://danielkummer.github.io/git-flow-cheatsheet)
-	brew install git-flow-avh
+    # A set of efficient branching git extensions (https://jeffkreeftmeijer.com/git-flow/)
+	brew install git-flow
 
     # Get a file from an HTTP, HTTPS or FTP server (https://curl.haxx.se/)
 	brew install curl
