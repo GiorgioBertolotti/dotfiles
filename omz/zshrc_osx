@@ -85,6 +85,12 @@ propic() {
     curl -o propic.jpeg "https://gravatar.com/avatar/3d2746ae6d5b422213088b12ebab1131?s=1000"
 }
 
+hoppscotch() {
+    echo ">>>> STARTING HOPPSCOTCH LOCALLY <<<<"
+    docker run --detach --rm --name hoppscotch -p 8566:3000 hoppscotch/hoppscotch:latest
+    open http://localhost:8566/
+}
+
 clean_dic_ios() {
     echo ">>>> clean_dic_ios <<<<"
     echo ">>>> yarn install, pod install and run on iOS <<<<"
