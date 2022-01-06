@@ -24,8 +24,8 @@
 	lfdet = log --follow --summary -p --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
 	tag-diff = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --oneline; };f"
 	tag-diff-files = "!f() { git log $(git describe --tags --abbrev=0)..HEAD --format=%H | git diff-tree --no-commit-id --name-only -r --stdin; };f"
-	sweep = !git branch --merged $(git rev-parse origin/devel) | grep -e \"^\\s\\+\\(hotfix\\|bugfix\\|fix\\|feature\\)/\" | xargs git branch -d
-	sweep-check = !git branch --merged $(git rev-parse origin/devel) | grep -e \"^\\s\\+\\(hotfix\\|bugfix\\|fix\\|feature\\)/\"
+	sweep = !git branch --merged $(git rev-parse origin/develop) | grep -e \"^\\s\\+\\(hotfix\\|bugfix\\|fix\\|feature\\)/\" | xargs git branch -d
+	sweep-check = !git branch --merged $(git rev-parse origin/develop) | grep -e \"^\\s\\+\\(hotfix\\|bugfix\\|fix\\|feature\\)/\"
 [core]
 	editor = vim
 	autocrlf = input
