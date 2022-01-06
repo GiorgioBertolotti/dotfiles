@@ -87,8 +87,9 @@ propic() {
 
 hoppscotch() {
     echo ">>>> STARTING HOPPSCOTCH LOCALLY <<<<"
-    docker run --detach --rm --name hoppscotch -p 8566:3000 hoppscotch/hoppscotch:latest
-    open http://localhost:8566/
+    HOPPSCOTCH_PORT=8566
+    docker run --detach --rm --name hoppscotch -p $HOPPSCOTCH_PORT:3000 hoppscotch/hoppscotch:latest
+    open http://localhost:$HOPPSCOTCH_PORT/
 }
 
 clean_dic_ios() {
