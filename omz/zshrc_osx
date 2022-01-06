@@ -86,10 +86,18 @@ propic() {
 }
 
 hoppscotch() {
-    echo ">>>> STARTING HOPPSCOTCH LOCALLY <<<<"
-    HOPPSCOTCH_PORT=8566
+    echo ">>>> STARTING HOPPSCOTCH <<<<"
+    if (( $# == 0 ))
+    then HOPPSCOTCH_PORT=3000
+    else HOPPSCOTCH_PORT=$1
+    fi
     docker run --detach --rm --name hoppscotch -p $HOPPSCOTCH_PORT:3000 hoppscotch/hoppscotch:latest
     open http://localhost:$HOPPSCOTCH_PORT/
+}
+
+hoppscotch_stop() {
+    echo ">>>> STOPPING HOPPSCOTCH <<<<"
+    docker stop hoppscotch
 }
 
 clean_dic_ios() {
