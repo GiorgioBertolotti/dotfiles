@@ -79,14 +79,23 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# PHP env variables
+export PATH=/usr/local/opt/php@7.4/bin:$PATH
+export PATH=/usr/local/opt/php@7.4/sbin:$PATH
+
 # Custom commands
+
+# Generic purpose
+
 propic() {
     echo ">>>> downloading propic <<<<"
     curl -o propic.jpeg "https://gravatar.com/avatar/3d2746ae6d5b422213088b12ebab1131?s=1000"
 }
 
+# Hoppscotch
+
 hoppscotch() {
-    echo ">>>> STARTING HOPPSCOTCH <<<<"
+    echo ">>>> starting hoppscotch <<<<"
     if (( $# == 0 ))
     then HOPPSCOTCH_PORT=3000
     else HOPPSCOTCH_PORT=$1
@@ -96,14 +105,22 @@ hoppscotch() {
 }
 
 hoppscotch_stop() {
-    echo ">>>> STOPPING HOPPSCOTCH <<<<"
+    echo ">>>> stopping hoppscotch <<<<"
     docker stop hoppscotch
 }
 
-clean_dic_ios() {
-    echo ">>>> clean_dic_ios <<<<"
+# Mobile development
+
+clean_derived_data() {
+    echo ">>>> cleaning Xcode DerivedData folder <<<<"
+    rm -rf ~/Library/Developer/Xcode/DerivedData
+}
+
+# React Native
+
+clean_rn_ios() {
+    echo ">>>> clean_rn_ios <<<<"
     echo ">>>> yarn install, pod install and run on iOS <<<<"
-    z dipe
     yarn
     cd ios
     pod install
@@ -111,16 +128,28 @@ clean_dic_ios() {
     yarn ios
 }
 
-clean_dic_android() {
-    echo ">>>> clean_dic_android <<<<"
+clean_rn_android() {
+    echo ">>>> clean_rn_android <<<<"
     echo ">>>> yarn install, clear Gradle cache and run on Android <<<<"
-    z dipe
     yarn
     cd android
     ./gradlew clean
+    ./gradlew cleanBuildCache
     cd ..
     yarn android
 }
+
+clean_rn_cache() {
+    echo ">>>> clean_rn_cache <<<<"
+    watchman watch-del-all
+    rm -rf node_modules
+    yarn
+    clean_derived_data
+    rm -rf /tmp/metro-*
+    yarn start --reset-cache
+}
+
+# Flutter Web
 
 flutter_web_deploy() {
     echo ">>>> flutter_web_deploy <<<<"
@@ -130,3 +159,5 @@ flutter_web_deploy() {
     firebase deploy
     cd ../..
 }
+
+eval "$(rbenv init -)"
