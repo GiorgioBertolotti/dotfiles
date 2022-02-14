@@ -15,11 +15,10 @@ You can check out my work environment here, if you like it please consider suppo
 	- [Quick start](#quick-start)
 	- [iTerm2](#iterm2)
 	- [CLI Utilities](#cli-utilities)
-	- [Alfred](#alfred)
+	- [Raycast](#raycast)
 	- [BetterTouchTool](#bettertouchtool)
 	- [Spicetify](#spicetify)
 	- [Theming](#theming)
-		- [Alfred](#alfred-1)
 		- [iTerm](#iterm)
 		- [Telegram Desktop](#telegram-desktop)
 		- [Visual Studio Code](#visual-studio-code)
@@ -29,7 +28,6 @@ You can check out my work environment here, if you like it please consider suppo
 	- [CLI Utilities](#cli-utilities-1)
 	- [ZSH plugins](#zsh-plugins-1)
 	- [TMUX](#tmux)
-	- [OMZ/zplugin](#omzzplugin)
 
 ## ZSH
 
@@ -197,19 +195,13 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install node
 	brew install go
 
-### Alfred
+### Raycast
 
-To install Alfred use:
+To install [Raycast](https://www.raycast.com/) use:
 
-	brew cask install alfred
+	brew cask install --cask raycast
 
-Once it's installed you can double click the files in the folder *alfred* to install extensions and themes.  
-Also, to use the *Alfred Bluetooth Controller* extension you should install [blueutil](http://www.frederikseiffert.de/blueutil/) and python3:
-
-    # Get/set bluetooth power and discoverable state (https://github.com/toy/blueutil)
-	brew install blueutil
-
-	brew install python3
+Once it's installed you can just open the *Raycast.rayconfig* file to import all my settings and extensions.
 
 ### BetterTouchTool
 
@@ -251,7 +243,6 @@ for your apps, so that you can easily keep them up-to-date.
 
 	mkdir ~/Dracula
 	cd ~/Dracula
-	git clone https://github.com/dracula/alfred
 	git clone https://github.com/dracula/iterm.git
 	git clone https://github.com/dracula/telegram.git
 	git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
@@ -260,10 +251,6 @@ for your apps, so that you can easily keep them up-to-date.
 	npm run build
 
 Check out the following sections to see how to install app specific theme.
-
-#### Alfred
-
-Just double-click `Dracula.alfredappearance`.
 
 #### iTerm
 
@@ -386,13 +373,3 @@ Reload TMUX environment:
 	tmux source ~/.tmux.conf
 
 Install new plugins with [Ctrl + b] + I.
-
-### OMZ/zplugin
-
-Execute the following command to use *oh-my-zsh*:
-
-	ln -sf dot-files/omz/zshrc_win ~/.zshrc
-
-or the following to use *zplugin*:
-
-	ln -sf dot-files/zplugin/zshrc ~/.zshrc
