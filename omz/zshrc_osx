@@ -44,6 +44,8 @@ alias gpot="gp origin --tags"
 alias cat="bat"
 alias speed="speedtest-cli"
 alias notify="tput bel"
+alias h="history"
+alias g="grep"
 
 # Enable exa instead of ls, if it is installed
 if [ "$(command -v exa)" ]; then
