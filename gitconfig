@@ -37,3 +37,5 @@
   line-numbers-left-format = ""
   line-numbers-right-format = "│ "
   syntax-theme = Nord
+[hub]
+	protocol = ssh
