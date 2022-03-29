@@ -31,15 +31,14 @@ export NVM_DIR="$HOME/.nvm"
 # ALIASES
 
 bindkey "^ " forward-word
-alias gpom="gp origin master"
-alias glom="gl origin master"
-alias glod="gl origin devel"
-alias gpot="gp origin --tags"
+alias gw="git sweep"
+alias gwc="git sweep-check"
 alias cat="bat"
 alias speed="speedtest-cli"
 alias notify="tput bel"
 alias h="history"
 alias g="grep"
+alias c="cargo"
 
 # Enable exa instead of ls, if it is installed
 if [ "$(command -v exa)" ]; then
