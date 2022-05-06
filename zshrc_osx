@@ -63,6 +63,9 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 # Checks iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# coreutils
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
 # Node global commands path
 export PATH=/usr/local/Cellar/node/15.12.0/bin:$PATH
 
@@ -77,6 +80,19 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=/usr/local/opt/php@7.4/bin:$PATH
 export PATH=/usr/local/opt/php@7.4/sbin:$PATH
 
+# spicetify
+export PATH=$PATH:/Users/Giorgio/.spicetify
+
+# Rust Cross-compiling
+export CC_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-gcc
+export CXX_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-g++
+export AR_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-ar
+export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-unknown-linux-gnu-gcc
+export CC_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-gcc
+export CXX_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-g++
+export AR_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-ar
+export CARGO_TARGET_aarch64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-gcc
+
 # Custom commands
 
 # Generic purpose
@@ -85,6 +101,38 @@ propic() {
     echo ">>>> downloading propic <<<<"
     curl -o propic.jpeg "https://gravatar.com/avatar/3d2746ae6d5b422213088b12ebab1131?s=1000"
 }
+
+find_raspberry() {
+    arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}'
+}
+
+find_raspberry_loop() {
+    while true;
+    do
+        OUTPUT=$(arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}')
+        if ! [ -z "$OUTPUT" ]
+        then
+            echo $OUTPUT
+        fi
+        
+        sleep 2
+    done
+}
+
+listen_raspberry() {
+    while true;
+    do
+        OUTPUT=$(arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}')
+        if ! [ -z "$OUTPUT" ]
+        then
+            echo $OUTPUT
+            break
+        fi
+
+        sleep 2
+    done
+}
+
 
 # Hoppscotch
 
