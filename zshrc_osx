@@ -83,6 +83,9 @@ export PATH=/usr/local/opt/php@7.4/sbin:$PATH
 # spicetify
 export PATH=$PATH:/Users/Giorgio/.spicetify
 
+# flutter pub
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 # Rust Cross-compiling
 export CC_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-gcc
 export CXX_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-g++
@@ -131,6 +134,10 @@ listen_raspberry() {
 
         sleep 2
     done
+}
+
+prsize() {
+  echo `git diff --shortstat $1`
 }
 
 
