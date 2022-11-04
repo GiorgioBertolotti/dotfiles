@@ -63,6 +63,9 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 # Checks iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# openssh from brew
+export PATH=/usr/local/bin:$PATH
+
 # coreutils
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
