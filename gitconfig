@@ -39,3 +39,5 @@
   syntax-theme = Nord
 [hub]
 	protocol = ssh
+[push]
+	autoSetupRemote = true
