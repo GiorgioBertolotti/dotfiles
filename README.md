@@ -1,38 +1,38 @@
-# Dotfiles
+# Giorgio Bertolotti's dotfiles
 
-Hey there! 👋
+Hey there! 👋  
 You can check out my work environment here, if you like it please consider supporting my work
+
+**Note**: This is a MacOS setup, and it's very Homebrew oriented.
+
 
 <a href='https://www.buymeacoffee.com/GiorgioZem' target="_blank"><img alt='Buy me a coffee' src='https://cdn.buymeacoffee.com/buttons/lato-yellow.png' height="38" width="160" /></a>
 
 - [ZSH](#zsh)
-	- [ZSH plugins](#zsh-plugins)
-	- [.zshrc](#zshrc)
-- [MacOS](#macos)
-	- [Use sudo with Touch ID](#use-sudo-with-touch-id)
-	- [Command line tools](#command-line-tools)
-	- [Homebrew](#homebrew)
-	- [Quick start](#quick-start)
-	- [iTerm2](#iterm2)
-	- [CLI Utilities](#cli-utilities)
-	- [Raycast](#raycast)
-	- [Spicetify](#spicetify)
-	- [Theming](#theming)
-		- [iTerm](#iterm)
-		- [Telegram Desktop](#telegram-desktop)
-		- [Visual Studio Code](#visual-studio-code)
-	- [Homebrew casks](#homebrew-casks)
+- [ZSH plugins](#zsh-plugins)
+- [.zshrc](#zshrc)
+- [Use sudo with Touch ID](#use-sudo-with-touch-id)
+- [Command line tools](#command-line-tools)
+- [Homebrew](#homebrew)
+- [Quick start](#quick-start)
+- [iTerm2](#iterm2)
+- [CLI Utilities](#cli-utilities)
+- [Raycast](#raycast)
+- [Spicetify](#spicetify)
+- [Theming](#theming)
+	- [iTerm](#iterm)
+	- [Telegram Desktop](#telegram-desktop)
+	- [Visual Studio Code](#visual-studio-code)
 
 ## ZSH
 
 [Zsh](https://www.zsh.org/) is a UNIX shell.  
 Install it and set it as default shell:
 
-    # MacOS installation
 	brew install zsh
 	sudo sh -c "echo $(which zsh) >> /etc/shells" && chsh -s $(which zsh)
 
-### ZSH plugins
+## ZSH plugins
 
 Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
 
@@ -47,35 +47,29 @@ Install alias-tips, zsh-autosuggestions and zsh-syntax-highlighting:
     # Fish shell like syntax highlighting for Zsh (https://github.com/zsh-users/zsh-syntax-highlighting)
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
 
-And enable the plugins adding the following line to *~/.zshrc* :
-
-	plugins=(git alias-tips zsh-autosuggestions zsh-syntax-highlighting)
-
-### .zshrc
+## .zshrc
 
 Execute the following command to use my already configured *.zshrc*:
 
 	ln -sf dot-files/zshrc_osx ~/.zshrc
 
-## MacOS
-
-### Use sudo with Touch ID
+## Use sudo with Touch ID
 
 [[guide](https://www.imore.com/how-use-sudo-your-mac-touch-id)] Open the sudo auth file */etc/pam.d/sudo* and add the following line:
 
 	auth sufficient pam_tid.so
 
-### Command line tools
+## Command line tools
 
 To install command line tools on MacOS use the following command:
 
 	xcode-select --install
 
-### Homebrew
+## Homebrew
 
 Homebrew is a package manager for MacOS, follow the instructions on [this page](https://brew.sh/) to install it.
 
-### Quick start
+## Quick start
 
 With the help of the *Brewfile*, we can dump the list of brew installed taps, brews and casks.  
 To generate a new Brewfile, run:
@@ -86,13 +80,13 @@ To restore a configuration, jump in the folder where you have the Brewfile and r
 
 	brew bundle
 
-### iTerm2
+## iTerm2
 
 Use cask to install iTerm2 as default terminal:
 
 	brew install --cask iterm2
 
-### CLI Utilities
+## CLI Utilities
 
 Then install command-line packages:
 
@@ -179,7 +173,7 @@ The following packages are language specific, but I'd suggest to install them an
 	brew install node
 	brew install go
 
-### Raycast
+## Raycast
 
 To install [Raycast](https://www.raycast.com/) use:
 
@@ -187,12 +181,12 @@ To install [Raycast](https://www.raycast.com/) use:
 
 Once it's installed you can just open the *Raycast.rayconfig* file to import all my settings and extensions.
 
-### Spicetify
+## Spicetify
 
 [Spicetify](https://github.com/spicetify/spicetify-cli) is a commandline tool to customize Spotify client.  
 To install spicetify follow [these instructions](https://spicetify.app/docs/getting-started#linux-and-macos).
 
-### Theming
+## Theming
 > To theme all the apps as I do, check out [Dracula](https://draculatheme.com/telegram).
 
 Create a folder in the root of your filesystem and name it Dracula, it will contain all the themes repositories 
@@ -209,7 +203,7 @@ for your apps, so that you can easily keep them up-to-date.
 
 Check out the following sections to see how to install app specific theme.
 
-#### iTerm
+### iTerm
 
 1. *iTerm2 > Preferences > Profiles > Colors Tab*
 2. Open the *Color Presets...* drop-down in the bottom right corner
@@ -219,29 +213,12 @@ Check out the following sections to see how to install app specific theme.
 
 **NB:** If `base16-shell` is active you must comment its activation out from *.zshrc*.
 
-#### Telegram Desktop
+### Telegram Desktop
 
 1. In Telegram Desktop, go to setting and under the *Chat background* section click on *Choose from file*.
 2. Select the `colors.tdesktop-theme` file you just downloaded.
 3. Click *Keep Changes* to apply the theme.
 
-#### Visual Studio Code
+### Visual Studio Code
 
 Run Visual Studio Code. The Dracula Syntax Theme will be available from *File -> Preferences -> Color Theme* dropdown menu.
-
-### Homebrew casks
-
-The following are commands to install my most commonly used apps through `cask`:
-
-	brew install --cask spotify
-	brew install --cask visual-studio-code
-	brew install --cask macupdater
-	brew install --cask vlc
-	brew install --cask appcleaner
-	brew install --cask font-fira-code
-	brew install --cask licecap
-	brew install --cask android-platform-tools
-	brew install --cask fastlane
-	brew install --cask folx
-	brew install --cask telegram-desktop
-	brew install --cask discord
