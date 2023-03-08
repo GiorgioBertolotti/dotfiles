@@ -64,6 +64,7 @@ alias notify="tput bel"
 alias h="history"
 alias g="grep"
 alias c="cargo"
+alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
 
 # Enable exa instead of ls, if it is installed
 if [ "$(command -v exa)" ]; then
