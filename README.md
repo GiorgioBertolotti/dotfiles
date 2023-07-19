@@ -15,12 +15,11 @@ You can check out my work environment here, if you like it please consider suppo
 - [Command line tools](#command-line-tools)
 - [Homebrew](#homebrew)
 - [Quick start](#quick-start)
-- [iTerm2](#iterm2)
+- [Warp](#warp)
 - [CLI Utilities](#cli-utilities)
 - [Raycast](#raycast)
 - [Spicetify](#spicetify)
 - [Theming](#theming)
-	- [iTerm](#iterm)
 	- [Telegram Desktop](#telegram-desktop)
 	- [Visual Studio Code](#visual-studio-code)
 
@@ -80,11 +79,11 @@ To restore a configuration, jump in the folder where you have the Brewfile and r
 
 	brew bundle
 
-## iTerm2
+## Warp
 
-Use cask to install iTerm2 as default terminal:
+Use cask to install Warp as default terminal:
 
-	brew install --cask iterm2
+	brew install --cask warp
 
 ## CLI Utilities
 
@@ -194,7 +193,6 @@ for your apps, so that you can easily keep them up-to-date.
 
 	mkdir ~/Dracula
 	cd ~/Dracula
-	git clone https://github.com/dracula/iterm.git
 	git clone https://github.com/dracula/telegram.git
 	git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
 	cd ~/.vscode/extensions/theme-dracula
@@ -202,16 +200,6 @@ for your apps, so that you can easily keep them up-to-date.
 	npm run build
 
 Check out the following sections to see how to install app specific theme.
-
-### iTerm
-
-1. *iTerm2 > Preferences > Profiles > Colors Tab*
-2. Open the *Color Presets...* drop-down in the bottom right corner
-3. Select *Import...* from the list
-4. Select the `Dracula.itermcolors` file
-5. Select the *Dracula* from Color *Presets...*
-
-**NB:** If `base16-shell` is active you must comment its activation out from *.zshrc*.
 
 ### Telegram Desktop
 
