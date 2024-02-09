@@ -212,7 +212,7 @@ clean_rn_android() {
     yarn
     cd android
     ./gradlew clean
-    ./gradlew cleanBuildCache
+    # ./gradlew cleanBuildCache
     cd ..
     yarn android
 }
