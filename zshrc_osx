@@ -66,16 +66,13 @@ alias g="grep"
 alias c="cargo"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
 
-# Enable exa instead of ls, if it is installed
-if [ "$(command -v exa)" ]; then
-    unalias -m 'll'
-    unalias -m 'l'
-    unalias -m 'la'
-    unalias -m 'ls'
-    alias ll='exa -l --color always --icons -a -s type'
-    alias l='exa -l --color always --icons -a -s type'
-    alias la='exa -l --color always --icons -a -s type'
-    alias ls='exa -G  --color auto --icons -a -s type'
+# Enable lsd instead of ls, if it is installed
+if [ "$(command -v lsd)" ]; then
+    alias ls='lsd'
+    alias l='ls -l'
+    alias la='ls -a'
+    alias ll='ls -la'
+    alias lla='ls -la'
 fi
 
 # Theme config
@@ -124,6 +121,12 @@ export CARGO_TARGET_aarch64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-g
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# Needed for CocoaPods
+export LANG=en_US.UTF-8
+
+# Needed for Android JDK
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
 # Custom commands
 

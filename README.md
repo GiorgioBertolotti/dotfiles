@@ -131,8 +131,8 @@ Then install command-line packages:
     # Tools and libraries to manipulate images in many formats (https://imagemagick.org/index.php)
 	brew install imagemagick
 
-    # Modern replacement for 'ls' (https://github.com/ogham/exa)
-	brew install exa
+    # Modern replacement for 'ls' (https://github.com/lsd-rs/lsd)
+	brew install lsd
 
     # Syntax-highlighting pager for git and diff output (https://github.com/dandavison/delta)
 	brew install git-delta
@@ -152,17 +152,14 @@ To enable `zoxide` add the following line to *.zshrc*:
 
 	eval "$(zoxide init zsh)"
 
-To replace the standard `ls` command with `exa`, add the following lines to *.zshrc*:
+To replace the standard `ls` command with `lsd`, add the following lines to *.zshrc*:
 
-	if [ "$(command -v exa)" ]; then
-			unalias -m 'll'
-			unalias -m 'l'
-			unalias -m 'la'
-			unalias -m 'ls'
-			alias ll='exa -l --color always --icons -a -s type'
-			alias l='exa -l --color always --icons -a -s type'
-			alias la='exa -l --color always --icons -a -s type'
-			alias ls='exa -G  --color auto --icons -a -s type'
+	if [ "$(command -v lsd)" ]; then
+    alias ls='lsd'
+    alias l='ls -l'
+    alias la='ls -a'
+    alias ll='ls -la'
+    alias lla='ls -la'
 	fi
 
 The following packages are language specific, but I'd suggest to install them anyway because of their generic purposes:
