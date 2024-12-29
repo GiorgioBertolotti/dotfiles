@@ -2,24 +2,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export TERM=xterm-256color
-
 # Path to oh-my-zsh configuration
 export ZSH=$HOME/.oh-my-zsh
-
-# Zsh theme and plugins
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   alias-tips
   zsh-autosuggestions
   zsh-syntax-highlighting
-  git-flow
 )
-
 source $ZSH/oh-my-zsh.sh
-
-# CLI Utilities Setup
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -103,12 +95,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=/usr/local/opt/php@7.4/bin:$PATH
 export PATH=/usr/local/opt/php@7.4/sbin:$PATH
 
-# spicetify
-export PATH=$PATH:/Users/Giorgio/.spicetify
-
-# flutter pub
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
 # Rust Cross-compiling
 export CC_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-gcc
 export CXX_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-g++
@@ -119,6 +105,7 @@ export CXX_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-g++
 export AR_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-ar
 export CARGO_TARGET_aarch64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-gcc
 
+# jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
@@ -129,8 +116,6 @@ export LANG=en_US.UTF-8
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
 # Custom commands
-
-# Generic purpose
 
 propic() {
     echo ">>>> downloading propic <<<<"
@@ -168,36 +153,12 @@ listen_raspberry() {
     done
 }
 
-prsize() {
-  echo `git diff --shortstat $1`
-}
-
-
-# Hoppscotch
-
-hoppscotch() {
-    echo ">>>> starting hoppscotch <<<<"
-    if (( $# == 0 ))
-    then HOPPSCOTCH_PORT=3000
-    else HOPPSCOTCH_PORT=$1
-    fi
-    docker run --detach --rm --name hoppscotch -p $HOPPSCOTCH_PORT:3000 hoppscotch/hoppscotch:latest
-    open http://localhost:$HOPPSCOTCH_PORT/
-}
-
-hoppscotch_stop() {
-    echo ">>>> stopping hoppscotch <<<<"
-    docker stop hoppscotch
-}
-
 # Mobile development
 
 clean_derived_data() {
     echo ">>>> cleaning Xcode DerivedData folder <<<<"
     rm -rf ~/Library/Developer/Xcode/DerivedData
 }
-
-# React Native
 
 clean_rn_ios() {
     echo ">>>> clean_rn_ios <<<<"
@@ -228,17 +189,6 @@ clean_rn_cache() {
     clean_derived_data
     rm -rf /tmp/metro-*
     yarn start --reset-cache
-}
-
-# Flutter Web
-
-flutter_web_deploy() {
-    echo ">>>> flutter_web_deploy <<<<"
-    echo ">>>> build and deploy Flutter Web on Firebase hosting <<<<"
-    flutter build web
-    cd build/web
-    firebase deploy
-    cd ../..
 }
 
 eval "$(rbenv init -)"
