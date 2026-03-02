@@ -1,0 +1,5 @@
+Checking MCP server health...
+
+github: https://api.githubcopilot.com/mcp (HTTP) - ✓ Connected
+memory: npx -y @modelcontextprotocol/server-memory - ✓ Connected
+sequential-thinking: npx -y @modelcontextprotocol/server-sequential-thinking - ✓ Connected
