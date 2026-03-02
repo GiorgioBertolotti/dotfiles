@@ -115,6 +115,10 @@ export LANG=en_US.UTF-8
 # Needed for Android JDK
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
+# Needed for Claude Code
+export PATH="$HOME/.local/bin:$PATH"
+export CLAUDE_PACKAGE_MANAGER=yarn
+
 # Custom commands
 
 propic() {
@@ -155,6 +159,18 @@ listen_raspberry() {
 
 # Mobile development
 
+launch_simulator() {
+    echo ">>>> opening iOS simulator <<<<"
+    open -a Simulator
+}
+
+launch_emulator() {
+    echo ">>>> opening Android emulator <<<<"
+    EMULATOR_NAME=$(emulator -list-avds | head -n 1)
+    echo ">>>> starting Android emulator: $EMULATOR_NAME <<<<"
+    emulator -avd "$EMULATOR_NAME"
+}
+
 clean_derived_data() {
     echo ">>>> cleaning Xcode DerivedData folder <<<<"
     rm -rf ~/Library/Developer/Xcode/DerivedData
@@ -188,7 +204,7 @@ clean_rn_cache() {
     yarn
     clean_derived_data
     rm -rf /tmp/metro-*
-    yarn start --reset-cache
 }
 
 eval "$(rbenv init -)"
+
