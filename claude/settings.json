@@ -1,9 +1,14 @@
 {
-  "model": "sonnet",
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
   },
-  "syntaxHighlightingDisabled": false
+  "syntaxHighlightingDisabled": false,
+  "effortLevel": "medium",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/giorgio/.claude/statusline-command.sh"
+  }
 }

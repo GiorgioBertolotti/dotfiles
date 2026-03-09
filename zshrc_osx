@@ -107,17 +107,19 @@ export CARGO_TARGET_aarch64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-g
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
-# Needed for CocoaPods
+# CocoaPods
 export LANG=en_US.UTF-8
 
-# Needed for Android JDK
+# Android JDK
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
-# Needed for Claude Code
+# Claude Code
 export PATH="$HOME/.local/bin:$PATH"
 export CLAUDE_PACKAGE_MANAGER=yarn
+
+# Ruby
+export PATH=/opt/homebrew/opt/ruby/bin:$PATH
 
 # Custom commands
 
@@ -206,5 +208,8 @@ clean_rn_cache() {
     rm -rf /tmp/metro-*
 }
 
-eval "$(rbenv init -)"
+# Finalizing
 
+eval "$(jenv init -)"
+eval "$(direnv hook zsh)"
+eval "$(rbenv init -)"
