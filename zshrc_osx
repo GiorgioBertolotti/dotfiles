@@ -55,8 +55,10 @@ alias speed="speedtest-cli"
 alias notify="tput bel"
 alias h="history"
 alias g="grep"
-alias c="cargo"
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
+alias c-cly="CLAUDE_CONFIG_DIR=~/.claude-cly claude --dangerously-skip-permissions"
+alias c-mt="CLAUDE_CONFIG_DIR=~/.claude-mt claude --dangerously-skip-permissions"
+alias y="yarn"
 
 # Enable lsd instead of ls, if it is installed
 if [ "$(command -v lsd)" ]; then
@@ -75,14 +77,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 
-# openssh from brew
+# /usr/local/bin (aws-cli, docker, cursor)
 export PATH=/usr/local/bin:$PATH
-
-# coreutils
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-
-# Node global commands path
-export PATH=/usr/local/Cellar/node/15.12.0/bin:$PATH
 
 # React-Native env variables
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -90,10 +86,6 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# PHP env variables
-export PATH=/usr/local/opt/php@7.4/bin:$PATH
-export PATH=/usr/local/opt/php@7.4/sbin:$PATH
 
 # Rust Cross-compiling
 export CC_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-gcc
@@ -104,9 +96,6 @@ export CC_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-gcc
 export CXX_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-g++
 export AR_aarch64_unknown_linux_gnu=aarch64-unknown-linux-gnu-ar
 export CARGO_TARGET_aarch64_UNKNOWN_LINUX_GNU_LINKER=aarch64-unknown-linux-gnu-gcc
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
 
 # CocoaPods
 export LANG=en_US.UTF-8
@@ -123,40 +112,37 @@ export PATH=/opt/homebrew/opt/ruby/bin:$PATH
 
 # Custom commands
 
+c() {
+    # When inside the Customerly folder, suggest running c-cly instead
+    if [[ "$PWD" == /Users/giorgio/Documents/Customerly/* || "$PWD" == /Users/giorgio/Documents/Customerly ]]; then
+        echo "You are inside the Customerly folder. Run 'c-cly' instead of 'c'."
+        echo -n "Run 'c-cly' now instead? [Y/n] "
+        read -r reply
+        if [[ "$reply" == [nN] || "$reply" == [nN][oO] ]]; then
+            claude --dangerously-skip-permissions "$@"
+        else
+            c-cly "$@"
+        fi
+        return
+    fi
+    # When inside the MangaTime folder, suggest running c-mt instead
+    if [[ "$PWD" == /Users/giorgio/Documents/Personal/MangaTime/* || "$PWD" == /Users/giorgio/Documents/Personal/MangaTime ]]; then
+        echo "You are inside the MangaTime folder. Run 'c-mt' instead of 'c'."
+        echo -n "Run 'c-mt' now instead? [Y/n] "
+        read -r reply
+        if [[ "$reply" == [nN] || "$reply" == [nN][oO] ]]; then
+            claude --dangerously-skip-permissions "$@"
+        else
+            c-mt "$@"
+        fi
+        return
+    fi
+    claude --dangerously-skip-permissions "$@"
+}
+
 propic() {
     echo ">>>> downloading propic <<<<"
     curl -o propic.jpeg "https://gravatar.com/avatar/3d2746ae6d5b422213088b12ebab1131?s=1000"
-}
-
-find_raspberry() {
-    arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}'
-}
-
-find_raspberry_loop() {
-    while true;
-    do
-        OUTPUT=$(arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}')
-        if ! [ -z "$OUTPUT" ]
-        then
-            echo $OUTPUT
-        fi
-        
-        sleep 2
-    done
-}
-
-listen_raspberry() {
-    while true;
-    do
-        OUTPUT=$(arp -na | grep -i "28:cd:c1\|b8:27:eb\|dc:a6:32\|e4:5f:1" | awk -F "[()]" '{print $2}')
-        if ! [ -z "$OUTPUT" ]
-        then
-            echo $OUTPUT
-            break
-        fi
-
-        sleep 2
-    done
 }
 
 # Mobile development
@@ -212,4 +198,6 @@ clean_rn_cache() {
 
 eval "$(jenv init -)"
 eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
+
+# Graph of the local tickets (.scratch/*/issues): `issues`, `issues --port 8001`, `issues <folder>`
+issues() { python3 ~/.local/bin/issues-graph.py "$@"; }
